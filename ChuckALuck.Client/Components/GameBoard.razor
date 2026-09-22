@@ -1,0 +1,95 @@
+﻿@using ChuckALuck.Shared
+
+<div class="board">
+
+    @if (Dice is { Length: > 0 })
+    {
+        <div class="dice">
+            @foreach (var d in Dice)
+            {
+                <div class="cube roll-@d">
+                    <div class="face front face-1">
+                        <span class="pip"></span>
+                    </div>
+
+                    <div class="face back face-6">
+                        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+
+                    <div class="face right face-3">
+                        <span class="pip"></span><span class="pip"></span><span class="pip"></span>
+                    </div>
+
+                    <div class="face left face-4">
+                        <span class="pip"></span><span class="pip"></span>
+                        <span class="pip"></span><span class="pip"></span>
+                    </div>
+
+                    <div class="face top face-2">
+                        <span class="pip"></span><span class="pip"></span>
+                    </div>
+
+                    <div class="face bottom face-5">
+                        <span class="pip"></span><span class="pip"></span>
+                        <span class="pip"></span><span class="pip"></span>
+                        <span class="pip"></span>
+                    </div>
+                </div>
+
+            }
+        </div>
+    }
+
+    @if (_showResults)
+    {
+        <div class="fade-in">
+        <h4>Результаты</h4>
+
+        @if (Results is not null && Results.Count > 0)
+        {
+            <ul>
+                @foreach (var r in Results)
+                {
+                    <li>
+                        Игрок @r.PlayerId :
+                        совпадений — @r.Matches,
+                        выигрыш — @r.WinAmount
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>Ожидание результатов...</p>
+        }
+        </div>
+   
+    }
+</div>
+
+@code {
+    [Parameter] public int[]? Dice { get; set; }
+    [Parameter] public List<PlayerResultDto>? Results { get; set; }
+    private bool _showResults = false;
+    private int[]? _prevDice;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Dice is null || Dice.Length == 0)
+            return;
+
+        if (_prevDice != null && Dice.SequenceEqual(_prevDice))
+            return;
+
+        _prevDice = Dice.ToArray();  
+
+        _showResults = false;
+        StateHasChanged();
+
+        await Task.Delay(1000);        
+
+        _showResults = true;
+        await InvokeAsync(StateHasChanged);
+    }
+}

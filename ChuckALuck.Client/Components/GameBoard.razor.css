@@ -1,0 +1,278 @@
+﻿.board {
+    background-color: #f5f0ff;
+    border: 2px solid #d1b3ff;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b3a7a;
+}
+
+    .board h3 {
+        color: #6a1b9a;
+        margin-bottom: 0.8rem;
+        text-align: center;
+    }
+
+.dice {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    perspective: 800px;
+    margin-bottom: 1rem;
+}
+
+
+.cube {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: throw 1.2s ease-out;
+    transition: transform 0.35s ease-out;
+}
+
+.face {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #e1bee7;
+    border: 2px solid #ce93d8;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+
+.front {
+    transform: translateZ(30px);
+}
+
+.back {
+    transform: rotateY(180deg) translateZ(30px);
+}
+
+.right {
+    transform: rotateY(90deg) translateZ(30px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(30px);
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(30px);
+}
+
+.bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+}
+
+
+
+@keyframes throw {
+    0% {
+        transform: translateY(-120px) rotateX(0deg) rotateY(0deg);
+    }
+
+    70% {
+        transform: translateY(15px) rotateX(540deg) rotateY(540deg);
+    }
+
+
+
+    100% {
+        transform: translateY(0) rotateX(720deg) rotateY(720deg);
+    }
+}
+
+
+
+.roll-1 {
+    transform: rotateX(0deg) rotateY(0deg);
+}
+
+.roll-2 {
+    transform: rotateX(-90deg);
+}
+
+.roll-3 {
+    transform: rotateY(-90deg);
+}
+
+.roll-4 {
+    transform: rotateY(90deg);
+}
+
+.roll-5 {
+    transform: rotateX(90deg);
+}
+
+.roll-6 {
+    transform: rotateY(180deg);
+}
+
+.board h4 {
+    color: #9c27b0;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #ce93d8;
+    padding-bottom: 0.2rem;
+}
+
+.board ul {
+    padding-left: 1.5rem;
+}
+
+    .board ul li {
+        margin-bottom: 0.4rem;
+    }
+
+.board p {
+    text-align: center;
+    font-style: italic;
+    color: #7b1fa2;
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.pip {
+    width: 10px;
+    height: 10px;
+    background-color: #4b3a7a;
+    border-radius: 50%;
+}
+
+
+
+.face {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    padding: 8px;
+}
+
+
+
+.face-1 .pip {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.face-2 .pip:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.face-2 .pip:nth-child(2) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.face-3 .pip:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.face-3 .pip:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.face-3 .pip:nth-child(3) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.face-4 .pip:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.face-4 .pip:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.face-4 .pip:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.face-4 .pip:nth-child(4) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.face-5 .pip:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.face-5 .pip:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.face-5 .pip:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.face-5 .pip:nth-child(4) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.face-5 .pip:nth-child(5) {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.face-6 .pip:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.face-6 .pip:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.face-6 .pip:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.face-6 .pip:nth-child(4) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.face-6 .pip:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.face-6 .pip:nth-child(6) {
+    grid-column: 3;
+    grid-row: 3;
+}

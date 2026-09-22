@@ -1,0 +1,22 @@
+﻿@page "/game"
+
+@inject NavigationManager Nav
+
+<div class="game-entry-container">
+    <h3>Вход в игру Chuck-a-Luck</h3>
+
+    <div class="game-entry-block">
+        <input class="game-input" @bind="_gameId" placeholder="Введите ID комнаты" />
+        <button class="game-button" @onclick="Enter">Войти</button>
+    </div>
+</div>
+
+@code {
+    private string _gameId = "room1";
+
+    private void Enter()
+    {
+        if (!string.IsNullOrWhiteSpace(_gameId))
+            Nav.NavigateTo($"/game/{_gameId}");
+    }
+}

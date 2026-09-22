@@ -1,0 +1,6 @@
+@ChuckALuck.Server_HostAddress = http://localhost:5262
+
+GET {{ChuckALuck.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,131 @@
+﻿.game-page-container {
+
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b3a7a;
+    border-radius: 12px;
+}
+
+
+
+h2 {
+    color: #6a1b9a;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.game-info p {
+    margin: 0.4rem 0;
+    font-size: 1rem;
+}
+
+.last-p {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ce93d8;
+    padding-bottom: 0.3rem;
+     
+}
+
+.score {
+    display: inline-block;
+    opacity: 0;
+    animation: scoreFade 0.6s ease-out forwards;
+    animation-delay: 1s; 
+}
+
+@keyframes scoreFade {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bet-block {
+    margin-top:2rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: baseline;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+    .bet-block input {
+        padding: 0.5rem;
+        border: 1px solid #ce93d8;
+        border-radius: 5px;
+    }
+
+.game-button {
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.make-bet-button {
+    background-color: #9c27b0;
+}
+
+    .make-bet-button:hover {
+        background-color: #7b1fa2;
+    }
+
+.roll-button {
+    background-color: #6a1b9a; 
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+ .roll-button:hover {
+    background-color: #4b0070;
+ }
+
+
+.alert-message {
+    position: fixed;
+    top: 1rem;
+    left: 59%;
+    transform: translateX(-50%);
+    background-color: #f8d7ff;
+    color: #6a1b9a;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    opacity: 0;
+    animation: fadein 0.3s forwards, fadeout 0.5s 2.5s forwards;
+    z-index: 1000;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
